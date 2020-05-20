@@ -1,0 +1,35 @@
+Class documentation
+<---- javadoc command: ---->
+/usr/lib/jvm/java-11-openjdk-amd64/bin/javadoc
+-author
+-version
+-nodeprecated
+-package
+-Xdoclint:none
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+11
+-classpath
+/usr/share/bluej/bluejcore.jar:/usr/share/bluej/junit-4.11.jar:/usr/share/bluej/hamcrest-core-1.3.jar:/usr/share/bluej/lang-stride.jar:/usr/share/java/javafx-base-11.jar:/usr/share/java/javafx-controls-11.jar:/usr/share/java/javafx-fxml-11.jar:/usr/share/java/javafx-graphics-11.jar:/usr/share/java/javafx-media-11.jar:/usr/share/java/javafx-properties-11.jar:/usr/share/java/javafx-swing-11.jar:/usr/share/java/javafx-web-11.jar:/home/student0/git/fs/projects
+-d
+/home/student0/git/fs/projects/doc
+-encoding
+UTF-8
+-charset
+UTF-8
+/home/student0/git/fs/projects/src/il/co/ilrd/threadpool/ThreadPool.java
+<---- end of javadoc command ---->
+Loading source file /home/student0/git/fs/projects/src/il/co/ilrd/threadpool/ThreadPool.java...
+Constructing Javadoc information...
+/home/student0/git/fs/projects/src/il/co/ilrd/threadpool/ThreadPool.java:30: error: cannot find symbol
+	private final WaitableQueue<Task<?>> taskWaitableQueue = new WaitableQueueConditionVar<>();
+	              ^
+  symbol:   class WaitableQueue
+  location: class ThreadPool
+/home/student0/git/fs/projects/src/il/co/ilrd/threadpool/ThreadPool.java:18: error: package il.co.ilrd.waitablequeue does not exist
+import il.co.ilrd.waitablequeue.*;
+^
+2 errors

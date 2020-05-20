@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <button onclick="displayDate()"> What date is it, Marty?</button>
+    </header>
+
+    <p id="Date">Undefined</p>
+</body>
+
+<script>
+    function displayDate()
+    {
+        document.getElementById('Date').innerHTML = Date();
+    }
+</script>
+
+</html>

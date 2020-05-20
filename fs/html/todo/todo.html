@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo list</title>
+
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    
+    <style>
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1> These are the thing you need todo</h1>
+        <nav>
+            <ul>
+                <a href="all_tasks.html"> All Tasks</a>
+                <a href="todo.html"> To Do</a>
+                <a href="done.html"> Done tasks</a>
+            </ul>
+        </nav>
+    </header>
+
+    <ul id="tasksToDo">
+        <li>
+            Be advised by ToDo list
+        </li>
+    </ul>
+
+    <div>
+        <form>
+            <input id="newTask" placeholder="a new task">
+            <button id="addTask" onclick="addTask()"> Add a new task </button>
+        </form>
+    </div>
+
+<script>
+    function addTask(){
+        var node = document.createElement("LI");
+        var textNode = document.createTextNode("Memento!")
+        node.appendChild(textNode);
+        document.getElementById('tasksToDo').appendChild(node);
+    }
+</script>
+
+    
+</body>
+
+</html>

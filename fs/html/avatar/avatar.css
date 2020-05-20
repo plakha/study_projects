@@ -1,0 +1,51 @@
+body {
+    text-align: center;
+}
+
+header {
+    background-image: url("vet.jpg");
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1.header_text {
+    color: rgb(228, 203, 203);
+}
+
+#avatar{
+/*TODO how to make it round*/
+    border-radius: 50%;
+}
+
+/*
+display: grid;
+grid-template-columns: 5fr 3fr 2fr 70px 2fr 3fr 5fr;
+*/
+
+#header_text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icons {
+    border-radius: 50%;
+    width: 100px;
+}
+
+#inputSpot {
+    height: auto;
+    width: 10%;
+    margin: auto;
+    background-image: url('search.png');
+    background-position: right;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    height: 25px;
+    border-radius: 8px;
+}
+
+.blog {
+  border-style: double;
+  border-width: 15px;
+}

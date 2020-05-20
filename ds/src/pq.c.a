@@ -1,0 +1,128 @@
+/***********************************
+18/7/2019
+Data Structure Priority Queue (PQ) - 
+reimplwmwntation based on heap ( that is based on DVec)
+Auteur Andrei Plakhotta
+Reviewer Daniel Meisel
+***********************************/
+#include <stdlib.h> /* malloc */
+#include <assert.h> /* assert */
+
+#include "pq.h" /* pq_t */
+#include "heap.h" /* heap_t */
+
+struct pq
+{
+ heap_t *heap;
+};
+
+/*typedef struct pq pq_t;*/
+/*typedef int(*pqpriority_f)(const void *data, const void *new_data, const void *params);*/
+/*typedef int(*pqcmp_f)(const void *data, const void *key, const void *params);*/
+
+
+pq_t *PQCreate(pqpriority_f IsToPushBefore)
+{
+	pq_t *pq = NULL;
+	
+	assert(NULL != IsToPushBefore);
+	
+	if(NULL == (pq = (pq_t *)malloc(sizeof(*pq))))
+	{
+		return NULL;
+	}
+	if(NULL == (pq->heap = HeapCreate(IsToPushBefore)))
+	{
+		free(pq);
+		
+		return NULL;
+	}
+	
+	return pq;
+}
+
+void PQDestroy(pq_t *pq)
+{
+	assert(NULL != pq);
+	
+	assert(NULL != pq->heap);
+	
+	HeapDestroy(pq->heap);
+	free(pq);
+}
+
+int PQEnqueue(pq_t *pq, void *data)
+{
+	assert(NULL != pq);
+	
+	assert(NULL != pq->heap);
+	
+	return HeapPush(pq->heap, data);
+}
+
+void *PQPeek(const pq_t *pq)
+{
+	assert(NULL != pq);
+	
+	assert(NULL != pq->heap);
+	
+	return HeapPeek(pq->heap);
+}
+
+
+int PQDequeue(pq_t *pq)
+{
+	assert(NULL != pq);
+	assert(NULL != pq->heap);
+	
+	HeapPop(pq->heap);
+	
+	return 0;
+}
+
+int PQIsEmpty(const pq_t *pq)
+{
+	assert(NULL != pq);
+	
+	assert(NULL != pq->heap);
+	
+	return HeapIsEmpty(pq->heap);
+}
+
+size_t PQSize(const pq_t *pq)
+{
+	assert(NULL != pq);
+	
+	assert(NULL != pq->heap);
+	
+	return HeapSize(pq->heap);
+}
+
+void PQClear(pq_t *pq)
+{
+	assert(NULL != pq);
+	
+	while(!PQIsEmpty(pq))
+	{
+		PQDequeue(pq);
+	}
+}
+
+
+
+int PQErase(pq_t *pq, const void *key, pqcmp_f ShouldErase)
+{
+	
+	assert(NULL != pq);
+	assert(NULL != ShouldErase);
+	
+	assert(NULL != pq->heap);
+	
+/*	end = SrtLEnd(pq->heap);*/
+/*	found = SrtLFind(SrtLBegin(pq->heap), end, ShouldErase, key, NULL);*/
+/*	if (end == found)*/
+/*	{*/
+/*		return 1;*/
+/*	}*/
+	return HeapRemove(pq->heap, ShouldErase, key);
+}
